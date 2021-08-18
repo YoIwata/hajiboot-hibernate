@@ -1,0 +1,22 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<!-- DBの接続情報 -->
+		<property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://127.0.0.1:3306/YGETS</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">password</property>
+
+		<!-- これがないとorg.hibernate.HibernateException: No CurrentSessionContext configured!　がでた -->
+		<property name="connection.pool_size">1</property>
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="current_session_context_class">thread</property>
+		<property name="show_sql">true</property>
+
+		<!-- マッピングするクラス -->
+		<mapping class="com.example.hajiboothibernate.Plan" />
+	</session-factory>
+</hibernate-configuration>
